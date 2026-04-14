@@ -163,6 +163,10 @@ header {
   font-size: 1rem;
 }
 
+
+/* =========================
+   NAV DESKTOP
+========================= */
 nav {
   display: flex;
   align-items: center;
@@ -179,14 +183,19 @@ nav a {
   transition: opacity 0.2s;
 }
 
-nav a:hover { opacity: 1; }
+nav a:hover {
+  opacity: 1;
+}
 
+/* bouton contact */
 .cta {
   border: 1px solid white;
   padding: 5px 10px;
 }
 
-/* HAMBURGER MENU */
+/* =========================
+   HAMBURGER ICON
+========================= */
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -205,14 +214,72 @@ nav a:hover { opacity: 1; }
   transition: all 0.3s ease;
 }
 
+/* animation burger → croix */
 .menu-toggle.active span:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
 }
+
 .menu-toggle.active span:nth-child(2) {
   opacity: 0;
 }
+
 .menu-toggle.active span:nth-child(3) {
   transform: translateY(-7px) rotate(-45deg);
+}
+
+/* =========================
+   MOBILE MENU
+========================= */
+@media (max-width: 768px) {
+
+  /* afficher burger */
+  .menu-toggle {
+    display: flex;
+  }
+
+  /* menu caché par défaut */
+  nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background: #0a0a0a;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 20px;
+
+    transition: right 0.4s ease;
+    z-index: 100;
+  }
+
+  /* menu ouvert */
+  nav.open {
+    right: 0;
+  }
+
+  /* liens */
+  nav a {
+    font-size: 22px;
+    margin: 0;
+    opacity: 0.7;
+  }
+
+  nav a:hover {
+    opacity: 1;
+  }
+
+
+  /* bouton contact stylé */
+  nav a.cta {
+    border: none;
+    padding: 12px 24px;
+    opacity: 0.7; 
+  }
 }
 
 /* =========================
@@ -875,4 +942,10 @@ section { scroll-margin-top: 80px; }
   .work-item iframe {
     height: 190px;
   }
+}
+img {
+    width: 100%;
+  height: 100%;
+  border-radius: 3%;
+  display: block;
 }
